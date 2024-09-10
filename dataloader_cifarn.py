@@ -3,7 +3,7 @@ import torch
 import copy
 import random
 import json
-from data.utils import download_url, check_integrity
+# from data.utils import download_url, check_integrity
 from utils.randaug import *
 from torch.utils.data import Dataset, DataLoader
 import torchvision.transforms as transforms
@@ -62,7 +62,7 @@ class cifarn_dataset(Dataset):
                     train_label = train_label + data_dic['labels']
                 train_data = np.concatenate(train_data)
             elif dataset == 'cifar100':
-                train_dic = unpickle('%s/train' % root_dir)
+                train_dic = unpickle(f'{root_dir}/train')
                 train_data = train_dic['data']
                 train_label = train_dic['fine_labels']
             train_data = train_data.reshape((50000, 3, 32, 32))
