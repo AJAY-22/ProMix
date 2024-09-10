@@ -415,7 +415,6 @@ def test(epoch, net1, net2):
     test_log.write('Epoch:%d   Accuracy:%.2f\n' % (epoch, acc))
     test_log.flush()
 
-
 def eval_train(model, all_loss, rho, num_class):
     w = linear_rampup2(epoch, args.warmup_ep)
     model.eval()
@@ -491,8 +490,7 @@ fmix = FMix()
 CE = nn.CrossEntropyLoss(reduction='none')
 CEloss = nn.CrossEntropyLoss()
 CEsoft = CE_Soft_Label()
-eval_loader, noise_or_not = loader.run('eval_train')
-test_loader = loader.run('test')
+
 
 all_loss = [[], []]  
 
